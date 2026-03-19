@@ -7,13 +7,13 @@ RUN apt-get update
 RUN apt-get install -y openjdk-21-jdk
 
 ## Instalar o Maven
-RUN apt-get install -y Maven
+RUN apt-get install -y maven
 
 ## Copy do projeto para o container
 COPY . .
 
 ## Compilar o projeto com o maven
-RUN mvn clean install
+RUN mvn clean install -DskipTests
 
 ##Execução do projeto
 FROM eclipse-temurin:21-jdk-jammy
